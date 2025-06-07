@@ -1,54 +1,72 @@
-# React + TypeScript + Vite
+# JSON Visual Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+👉 **Live Demo**: [https://json-viewer-lemon.vercel.app/](https://json-viewer-lemon.vercel.app/)
 
-Currently, two official plugins are available:
+![Project Screenshot](image.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A high-performance online JSON visual editor, specifically designed for developers who need advanced Schema
+validation and a smooth editing experience for large JSON documents.
 
-## Expanding the ESLint configuration
+It mainly consists of three core views:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Schema View**: Based on Monaco Editor, used for defining and editing JSON Schema.
+2. **Text View**: A JSON editor based on Monaco Editor, integrated with advanced custom validation.
+3. **Tree View**: Fully virtualized tree structure display that maintains smooth performance even when handling
+   extremely large JSON files.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## ✨ Core Features
+
+- **Extensible Validation Engine**: Powered by **AJV (Another JSON Schema Validator)** rather than Monaco's built-in
+  validator.
+- **Rich Format Support**: Native support for dozens of standard formats through integration with `ajv-formats`, such as
+  `"uuid"`, `"uri"`, `"email"`, etc.
+- **Custom Validation**: Implemented support for custom `format: "expression"`, using **Babel Parser (`@babel/parser`)**
+  to provide JavaScript expression syntax validation and error prompts.
+- **High-Performance Architecture**: Built with Vite + React + TypeScript, and implements virtualized rendering for tree
+  view through `react-window`.
+
+## 📦 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Wacry/json-visual-editor.git
+cd json-visual-editor
+
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Running the Application
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+# Start the development server
+npm run dev
 ```
+
+The application will be available at http://localhost:5173 by default.
+
+## 🛠️ Dependencies
+
+### Main Dependencies
+
+- **React**: ^19.1.0
+- **Monaco Editor**: ^0.52.2
+- **AJV**: ^8.17.1
+- **@babel/parser**: ^7.27.5
+- **react-window**: ^1.8.11
+
+### Development Tools
+
+- **Vite**: ^6.3.5
+- **TypeScript**: ~5.8.3
+- **ESLint**: ^9.25.0
+
+## 🏗️ Project Structure
+
+- `src/components/SchemaView.tsx`: Schema editor implementation
+- `src/components/TextView.tsx`: JSON text editor implementation
+- `src/components/TreeView.tsx`: Tree visualization implementation
+
+## 📄 License
+
+MIT
