@@ -1,0 +1,76 @@
+.tree-container {
+  height: 100%;
+  width: 100%;
+  background-color: #242424;
+  color: #d4d4d4;
+  font-family: Menlo, Monaco, 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.tree-error {
+  padding: 16px;
+  color: #ff6b6b;
+}
+
+.tree-node {
+  display: flex;
+  align-items: center;
+  white-space: pre;
+  padding: 0 8px;
+  border-bottom: 1px solid #333;
+}
+
+.node-indent {
+  flex-shrink: 0;
+}
+
+.node-toggler {
+  cursor: pointer;
+  width: 1.5em;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.node-key {
+  color: #9cdcfe;
+  margin-right: 0.5em;
+}
+
+.node-meta {
+  color: #808080;
+}
+
+.node-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.node-value-string {
+  color: #ce9178;
+}
+
+.node-value-number {
+  color: #b5cea8;
+}
+
+.node-value-boolean {
+  color: #569cd6;
+}
+
+.node-value-null {
+  color: #569cd6;
+}
+.node-value-input {
+  background-color: #3c3c3c;
+  border: 1px solid #646cff;
+  color: #d4d4d4;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 2px 4px;
+  border-radius: 3px;
+  outline: none;
+  width: 100%;
+}

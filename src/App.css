@@ -1,0 +1,36 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.header {
+  padding: 8px 16px;
+  border-bottom: 1px solid #4d4d4d;
+  flex-shrink: 0;
+  background-color: #1e1e1e;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.pane {
+  overflow: auto;
+  height: 100%;
+  padding: 0;
+}
+
+.pane:first-child {
+  border-right: 1px solid #4d4d4d;
+}
