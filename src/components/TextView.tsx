@@ -54,12 +54,14 @@ function TextView({value, onChange, schemaText}: TextViewProps) {
             try {
                 const schema = JSON.parse(schemaText);
                 monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
-                    validate: false, // IMPORTANT: We disable Monaco's built-in validation
+                    // Enable Monaco's syntax validation but ignore its schema validation
+                    validate: true,
+                    schemaValidation: 'ignore',
                     schemas: [{ uri: schemaUri, fileMatch: [modelUri], schema }],
                 });
             } catch {
                 // If schema is invalid, clear the config
-                monaco.languages.json.jsonDefaults.setDiagnosticsOptions({ validate: false, schemas: [] });
+                monaco.languages.json.jsonDefaults.setDiagnosticsOptions({ validate: true, schemaValidation: 'ignore', schemas: [] });
             }
         }, 500);
         return () => clearTimeout(timer);
